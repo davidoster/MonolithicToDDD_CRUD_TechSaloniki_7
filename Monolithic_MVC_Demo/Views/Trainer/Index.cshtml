@@ -1,0 +1,37 @@
+﻿@model List<Monolithic_MVC_Demo.Models.Trainer>
+
+<h1>Trainers</h1>
+
+<p>
+    <a asp-controller="Trainer" asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trainer in Model)
+        {
+            <tr>
+                <td>@trainer.Id</td>
+                <td>@trainer.FirstName</td>
+                <td>@trainer.LastName</td>
+                <td>@trainer.Email</td>
+                <td>@trainer.PhoneNumber</td>
+                <td>
+                    <a asp-controller="Trainer" asp-action="Edit" asp-route-id="@trainer.Id">Edit</a> |
+                    <a asp-controller="Trainer" asp-action="Details" asp-route-id="@trainer.Id">Details</a> |
+                    <a asp-controller="Trainer" asp-action="Delete" asp-route-id="@trainer.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

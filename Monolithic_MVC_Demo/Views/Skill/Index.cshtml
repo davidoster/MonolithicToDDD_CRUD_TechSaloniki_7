@@ -1,0 +1,34 @@
+﻿@model List<Monolithic_MVC_Demo.Models.Skill>
+
+<h1>Skills</h1>
+
+<p>
+    <a asp-action="Create">Create New Skill</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var skill in Model)
+        {
+            <tr>
+                <td>@skill.Id</td>
+                <td>@skill.Name</td>
+                <td>@skill.Description</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@skill.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@skill.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@skill.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
